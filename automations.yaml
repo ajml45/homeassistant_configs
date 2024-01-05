@@ -1,0 +1,139 @@
+- id: '1675797444753'
+  alias: Great Room Side Shade Closed
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: '-1:00'
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.closed_2
+    metadata: {}
+  mode: single
+- id: '1675798534763'
+  alias: Close All Blinds
+  description: '30 min after sunset closes all blinds '
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 00:30:00
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.close_blinds
+    metadata: {}
+  - service: scene.turn_on
+    target:
+      entity_id: scene.close_blinds_bedroom
+    metadata: {}
+  mode: single
+- id: '1682987519193'
+  alias: Dusty Charging Check
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:27:00
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      entity_id: vacuum.dusty
+      attribute: status
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 5
+      state: Charging
+  action:
+  - service: script.send_dusty_home
+    data: {}
+  mode: single
+- id: '1682989182859'
+  alias: Cleanopatra Charging Check
+  description: ''
+  trigger:
+  - platform: time
+    at: '19:05:00'
+  condition:
+  - condition: not
+    conditions:
+    - condition: state
+      for:
+        hours: 0
+        minutes: 0
+        seconds: 5
+      state: Charging
+      entity_id: vacuum.cleanopatra
+      attribute: status
+  action:
+  - service: script.send_cleanopatra_home_dialog
+    data: {}
+  mode: single
+- id: '1683654242030'
+  alias: Pico First Floor Light Entity Control
+  description: ''
+  use_blueprint:
+    path: smartqasa/lutron_pico_5_light.yaml
+    input:
+      pico_1: ae2cfeda57affa50c0e00e2e8320396e
+      entity:
+      - light.first_floor_lights
+      step: 5
+      transition_on: 3
+      transition_off: 3
+- id: '1683820642231'
+  alias: Blinds - Great Room Open
+  description: Opens great room blinds 30 min after sunrise
+  trigger:
+  - platform: sun
+    event: sunrise
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.open_blinds_great_room
+    metadata: {}
+  mode: single
+- id: '1683820819229'
+  alias: Open Back Blinds Partial
+  description: Opens back blinds slightly an hour before sunrise
+  trigger:
+  - platform: sun
+    event: sunrise
+    offset: '-1800'
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.open_back_blinds_partial
+    metadata: {}
+  mode: single
+- id: '1684062099631'
+  alias: Blinds - Bedroom Open
+  description: 9am
+  trigger:
+  - platform: time
+    at: 07:30:00
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.open_blinds_bedroom
+    metadata: {}
+  mode: single
+- id: '1684067381055'
+  alias: Blinds - Bedroom Partial
+  description: 7am
+  trigger:
+  - platform: time
+    at: 07:00:00
+  condition: []
+  action:
+  - service: scene.turn_on
+    target:
+      entity_id: scene.blinds_bedroom_partial
+    metadata: {}
+  mode: single

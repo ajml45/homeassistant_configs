@@ -1,0 +1,67 @@
+send_dusty_home:
+  alias: Send Dusty Home Dialog
+  use_blueprint:
+    path: homeassistant/confirmable_notification.yaml
+    input:
+      notify_device: b96e154f7a729ce1b12bbbc4d5e70322
+      message: Send Dusty home?
+      confirm_text: 'Yes'
+      dismiss_text: 'No'
+      confirm_action:
+      - device_id: 2c5c90aae65989d7b8a0e0e9a887f8ac
+        domain: vacuum
+        entity_id: vacuum.dusty
+        type: dock
+      title: Dusty's Not Charging
+  mode: single
+send_cleanopatra_home_dialog:
+  alias: Send Cleanopatra Home Dialog
+  use_blueprint:
+    path: homeassistant/confirmable_notification.yaml
+    input:
+      notify_device: b96e154f7a729ce1b12bbbc4d5e70322
+      message: Send Cleanopatra home?
+      confirm_text: 'Yes'
+      dismiss_text: 'No'
+      confirm_action:
+      - device_id: 2630f477067cd1d846a79ef83fa38b4c
+        domain: vacuum
+        entity_id: vacuum.cleanopatra
+        type: dock
+      title: Cleanopatra's Not Charging
+  mode: single
+first_floor_lights_up_5:
+  alias: First Floor Lights Up 5
+  sequence:
+  - service: light.turn_on
+    data:
+      brightness_step_pct: 5
+    target:
+      entity_id: light.first_floor_lights
+  mode: single
+  icon: mdi:plus
+first_floor_lights_down_5:
+  alias: First Floor Lights Down 5
+  sequence:
+  - service: light.turn_on
+    data:
+      brightness_step_pct: -5
+    target:
+      entity_id: light.first_floor_lights
+  mode: single
+  icon: mdi:minus
+'1697051290158':
+  alias: bruins_home
+  sequence:
+  - service: media_player.select_source
+    data:
+      entity_id: media_player.spotify_mclaughlin_andrew
+      source: Echo Show 15
+  - service: media_player.play_media
+    data:
+      entity_id: media_player.spotify
+      media_content_id: spotify:music:lkay6wSIODb
+      media_content_type: music
+  - service: media_player.media_play
+    data:
+      entity_id: media_player.great_room_sonos
