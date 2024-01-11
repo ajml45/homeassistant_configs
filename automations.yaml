@@ -137,3 +137,435 @@
       entity_id: scene.blinds_bedroom_partial
     metadata: {}
   mode: single
+- id: '1704823288280'
+  alias: Kitchen Light Fade
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - service: script.light_fader
+    data:
+      lampBrightnessScale: zeroToTwoFiftyFive
+      easingTypeInput: easeInOutCubic
+      endBrightnessPercent: 5
+      endBrightnessEntityScale: zeroToOneHundred
+      autoCancelThreshold: 10
+      shouldStopIfTheLampIsTurnedOffDuringTheFade: true
+      shouldResetTheStopEntityToOffAtStart: false
+      shouldInvertTheValueOfTheStopEntity: false
+      minimumStepDelayInMilliseconds: 100
+      shouldTryToUseNativeLampTransitionsToo: false
+      isDebugMode: false
+      light: light.kitchen
+      transitionTime:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  mode: single
+- id: '1704824306232'
+  alias: Great Room Light Fade
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - service: script.light_fader
+    data:
+      lampBrightnessScale: zeroToTwoFiftyFive
+      easingTypeInput: easeInOutCubic
+      endBrightnessPercent: 5
+      endBrightnessEntityScale: zeroToOneHundred
+      autoCancelThreshold: 10
+      shouldStopIfTheLampIsTurnedOffDuringTheFade: true
+      shouldResetTheStopEntityToOffAtStart: false
+      shouldInvertTheValueOfTheStopEntity: false
+      minimumStepDelayInMilliseconds: 100
+      shouldTryToUseNativeLampTransitionsToo: false
+      isDebugMode: false
+      light: light.great_room
+      transitionTime:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  mode: single
+- id: '1704824348868'
+  alias: Mudroom Light Fade
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - service: script.light_fader
+    data:
+      lampBrightnessScale: zeroToTwoFiftyFive
+      easingTypeInput: easeInOutCubic
+      endBrightnessPercent: 5
+      endBrightnessEntityScale: zeroToOneHundred
+      autoCancelThreshold: 10
+      shouldStopIfTheLampIsTurnedOffDuringTheFade: true
+      shouldResetTheStopEntityToOffAtStart: false
+      shouldInvertTheValueOfTheStopEntity: false
+      minimumStepDelayInMilliseconds: 100
+      shouldTryToUseNativeLampTransitionsToo: false
+      isDebugMode: false
+      light: light.mudroom
+      transitionTime:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  mode: single
+- id: '1704824381231'
+  alias: Foyer Offices Light Fade
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - service: script.light_fader
+    data:
+      lampBrightnessScale: zeroToTwoFiftyFive
+      easingTypeInput: easeInOutCubic
+      endBrightnessPercent: 5
+      endBrightnessEntityScale: zeroToOneHundred
+      autoCancelThreshold: 10
+      shouldStopIfTheLampIsTurnedOffDuringTheFade: true
+      shouldResetTheStopEntityToOffAtStart: false
+      shouldInvertTheValueOfTheStopEntity: false
+      minimumStepDelayInMilliseconds: 100
+      shouldTryToUseNativeLampTransitionsToo: false
+      isDebugMode: false
+      light: light.offices
+      transitionTime:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  mode: single
+- id: '1704824454444'
+  alias: Solarium Light Fade
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - service: script.light_fader
+    data:
+      lampBrightnessScale: zeroToTwoFiftyFive
+      easingTypeInput: easeInOutCubic
+      endBrightnessPercent: 5
+      endBrightnessEntityScale: zeroToOneHundred
+      autoCancelThreshold: 10
+      shouldStopIfTheLampIsTurnedOffDuringTheFade: true
+      shouldResetTheStopEntityToOffAtStart: false
+      shouldInvertTheValueOfTheStopEntity: false
+      minimumStepDelayInMilliseconds: 60000
+      shouldTryToUseNativeLampTransitionsToo: false
+      isDebugMode: false
+      light: light.solarium
+      transitionTime:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  mode: single
+- id: '1704824493298'
+  alias: Basement Light Fade
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - service: script.light_fader
+    data:
+      lampBrightnessScale: zeroToTwoFiftyFive
+      easingTypeInput: easeInOutCubic
+      endBrightnessPercent: 5
+      endBrightnessEntityScale: zeroToOneHundred
+      autoCancelThreshold: 10
+      shouldStopIfTheLampIsTurnedOffDuringTheFade: true
+      shouldResetTheStopEntityToOffAtStart: false
+      shouldInvertTheValueOfTheStopEntity: false
+      minimumStepDelayInMilliseconds: 100
+      shouldTryToUseNativeLampTransitionsToo: false
+      isDebugMode: false
+      light: light.basement
+      transitionTime:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  mode: single
+- id: '1704827475326'
+  alias: Dusk Kitchen Lights On
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:45:00
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  - condition: state
+    entity_id: light.kitchen
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 2
+    target:
+      entity_id:
+      - light.kitchen
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 45
+      transition: 300
+    target:
+      entity_id: light.kitchen
+  mode: single
+- id: '1704828190029'
+  alias: Dusk Great Room Lights On
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:45:00
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  - condition: state
+    entity_id: light.great_room
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 1
+    target:
+      entity_id:
+      - light.great_room
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 45
+      transition: 300
+    target:
+      entity_id: light.great_room
+  mode: single
+- id: '1704828220306'
+  alias: Dusk Mudroom Lights On
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:45:00
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  - condition: state
+    entity_id: light.mudroom
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 1
+    target:
+      entity_id:
+      - light.mudroom
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 45
+      transition: 300
+    target:
+      entity_id: light.mudroom
+  mode: single
+- id: '1704828256062'
+  alias: Dusk Foyer Offices Lights On
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:45:00
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  - condition: state
+    entity_id: light.offices
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 1
+    target:
+      entity_id:
+      - light.offices
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 45
+      transition: 300
+    target:
+      entity_id: light.offices
+  mode: single
+- id: '1704828323384'
+  alias: Dusk Solarium Lights On
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:45:00
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  - condition: state
+    entity_id: light.solarium
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 1
+    target:
+      entity_id:
+      - light.solarium
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 45
+      transition: 300
+    target:
+      entity_id: light.solarium
+  mode: single
+- id: '1704828349964'
+  alias: Dusk Basement Lights On
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -00:45:00
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  - condition: state
+    entity_id: light.basement
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 1
+    target:
+      entity_id:
+      - light.basement
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 45
+      transition: 300
+    target:
+      entity_id: light.basement
+  mode: single

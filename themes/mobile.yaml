@@ -288,8 +288,6 @@ mobile:
         --ha-card-box-shadow: none;
       }
   
-  card-mod-theme: mobile
-  
   card-mod-root-yaml: |
     .: |
       @media only screen and (max-width: 768px) {
