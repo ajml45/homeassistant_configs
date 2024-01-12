@@ -156,7 +156,7 @@
     data:
       lampBrightnessScale: zeroToTwoFiftyFive
       easingTypeInput: easeInOutCubic
-      endBrightnessPercent: 5
+      endBrightnessPercent: 10
       endBrightnessEntityScale: zeroToOneHundred
       autoCancelThreshold: 10
       shouldStopIfTheLampIsTurnedOffDuringTheFade: true
@@ -224,7 +224,7 @@
     data:
       lampBrightnessScale: zeroToTwoFiftyFive
       easingTypeInput: easeInOutCubic
-      endBrightnessPercent: 5
+      endBrightnessPercent: 0
       endBrightnessEntityScale: zeroToOneHundred
       autoCancelThreshold: 10
       shouldStopIfTheLampIsTurnedOffDuringTheFade: true
@@ -258,7 +258,7 @@
     data:
       lampBrightnessScale: zeroToTwoFiftyFive
       easingTypeInput: easeInOutCubic
-      endBrightnessPercent: 5
+      endBrightnessPercent: 15
       endBrightnessEntityScale: zeroToOneHundred
       autoCancelThreshold: 10
       shouldStopIfTheLampIsTurnedOffDuringTheFade: true
@@ -278,7 +278,7 @@
   description: ''
   trigger:
   - platform: time
-    at: '18:30:00'
+    at: '20:30:00'
   condition:
   - condition: time
     weekday:
@@ -292,7 +292,7 @@
     data:
       lampBrightnessScale: zeroToTwoFiftyFive
       easingTypeInput: easeInOutCubic
-      endBrightnessPercent: 5
+      endBrightnessPercent: 0
       endBrightnessEntityScale: zeroToOneHundred
       autoCancelThreshold: 10
       shouldStopIfTheLampIsTurnedOffDuringTheFade: true
@@ -326,7 +326,7 @@
     data:
       lampBrightnessScale: zeroToTwoFiftyFive
       easingTypeInput: easeInOutCubic
-      endBrightnessPercent: 5
+      endBrightnessPercent: 15
       endBrightnessEntityScale: zeroToOneHundred
       autoCancelThreshold: 10
       shouldStopIfTheLampIsTurnedOffDuringTheFade: true
@@ -514,22 +514,10 @@
   action:
   - service: light.turn_on
     data:
-      brightness_pct: 1
+      brightness_pct: 45
     target:
       entity_id:
       - light.solarium
-  - delay:
-      hours: 0
-      minutes: 0
-      seconds: 2
-      milliseconds: 0
-  - service: light.turn_on
-    metadata: {}
-    data:
-      brightness_pct: 45
-      transition: 300
-    target:
-      entity_id: light.solarium
   mode: single
 - id: '1704828349964'
   alias: Dusk Basement Lights On
