@@ -35,12 +35,12 @@
   description: ''
   trigger:
   - platform: time
-    at: 07:27:00
+    at: '19:06:00'
   condition:
   - condition: not
     conditions:
     - condition: state
-      entity_id: vacuum.dusty
+      entity_id: vacuum.dusty_jr
       attribute: status
       for:
         hours: 0
