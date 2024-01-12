@@ -98,7 +98,7 @@ Uses bubble card heavily - for the home page room controls as well as the indivi
 
 
 ## Integrations
-<img src="https://github.com/ajml45/ha-configs/assets/122765092/8323707a-0f49-44c6-b1f5-4daaf6bbd619" width="800">
+<img src="https://github.com/ajml45/homeassistant_configs/assets/122765092/8323707a-0f49-44c6-b1f5-4daaf6bbd619" width="800">
 
 ## Add-Ons
-<img src="https://github.com/ajml45/ha-configs/assets/122765092/a9e52e9a-e266-4cf4-81f0-df3efe80aa87" width="800">
+<img src="https://github.com/ajml45/homeassistant_configs/assets/122765092/a9e52e9a-e266-4cf4-81f0-df3efe80aa87" width="800">
