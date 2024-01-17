@@ -2,9 +2,12 @@
 Main light control dynamically controls all of the lights in the house via <a href="https://github.com/fredck/lightener">Lightener</a>.  Each room of the house has it's own light via Lightner that controls all of the lights in that room.  The main light control is made of up each of those room lights.
 
 Light scripting: 
-- 45 min before dusk the lights in the majority of the rooms transition to 45% (as long as they are currently off) over a 5 minute period.  This uses the built in Home Assistant service calls, <a href="https://everythingsmarthome.co.uk/creating-wake-up-sunrise-lights-with-home-assistant/">more details here.</a>
+- An hour before sunset the lights in the majority of the rooms transition to 45% (as long as they are currently off) over a 5 minute period.  This uses the built in Home Assistant service calls, <a href="https://everythingsmarthome.co.uk/creating-wake-up-sunrise-lights-with-home-assistant/">more details here.</a>
 - Beginning at 6:30pm for the majority of rooms (some are later for example the Solarium doesnt start until 830pm), the lights gradually fade from their current brightness down to dim levels (generally 15-0% based on the room.)  This is done via <a href="https://community.home-assistant.io/t/ashley-s-light-fader-2-0-fade-lights-and-or-color-temperature-with-your-choice-of-easing-curves-including-ease-in-ease-out-and-ease-in-out/584077">Ashley's fader script."
-- The code for this is set-up in Lightener for the lights and the scripts.yaml file for the logic.  
+- On Sat/Sun the lights come on an hour earlier.  On Fri/Sat they start turning off an hour later.
+- The code for this is set-up in Lightener for the lights and the scripts.yaml file for the logic.
+<img src="https://github.com/ajml45/homeassistant_configs/assets/122765092/52af8497-7db8-49c9-a0ad-ab34c4bc2a5a)" width="200"> </br>
+
 
 ## Tablet Dashboard
 <img src="https://github.com/ajml45/homeassistant_configs/assets/122765092/577ee7d9-625c-437d-8507-37034901e044)" width="500"> </br>
