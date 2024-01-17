@@ -2357,3 +2357,63 @@
   entities: {}
   icon: mdi:party-popper
   metadata: {}
+- id: '1705514560401'
+  name: Good Morning
+  entities:
+    switch.charlotte_fan:
+      assumed_state: true
+      icon: phu:pedastal-fan
+      friendly_name: Charlotte Fan
+      state: 'off'
+    switch.charlotte_night_light:
+      assumed_state: true
+      icon: phu:scene-nightlight
+      friendly_name: Charlotte Night Light
+      state: 'off'
+    switch.charlotte_noise:
+      assumed_state: true
+      icon: mdi:boombox
+      friendly_name: Charlotte Noise Machine
+      state: 'off'
+    switch.henry_noise_floor:
+      assumed_state: true
+      icon: mdi:boombox
+      friendly_name: Henry Noise Floor
+      state: 'off'
+    switch.henry_noise_table:
+      assumed_state: true
+      icon: mdi:boombox
+      friendly_name: Henry Noise Table
+      state: 'off'
+    fan.master_bedroom_ceiling_fan:
+      preset_modes:
+      percentage: 0
+      percentage_step: 25
+      preset_mode:
+      device_id: '91'
+      zone_id: '53'
+      icon: phu:ceiling-fan
+      friendly_name: Master Bedroom Ceiling Fan
+      supported_features: 1
+      state: 'off'
+    switch.master_bedroom_fan:
+      assumed_state: true
+      icon: phu:pedastal-fan
+      friendly_name: Floor Fan
+      state: 'off'
+  icon: mdi:weather-sunset-up
+  metadata:
+    switch.charlotte_fan:
+      entity_only: true
+    switch.charlotte_night_light:
+      entity_only: true
+    switch.charlotte_noise:
+      entity_only: true
+    switch.henry_noise_floor:
+      entity_only: true
+    switch.henry_noise_table:
+      entity_only: true
+    fan.master_bedroom_ceiling_fan:
+      entity_only: true
+    switch.master_bedroom_fan:
+      entity_only: true

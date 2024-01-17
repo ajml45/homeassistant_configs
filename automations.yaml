@@ -142,15 +142,12 @@
   description: ''
   trigger:
   - platform: time
-    at: '18:30:00'
+    at: '19:30:00'
   condition:
   - condition: time
     weekday:
-    - sun
-    - mon
-    - tue
-    - wed
-    - thu
+    - fri
+    - sat
   action:
   - service: script.light_fader
     data:
@@ -176,15 +173,12 @@
   description: ''
   trigger:
   - platform: time
-    at: '18:30:00'
+    at: '19:30:00'
   condition:
   - condition: time
     weekday:
-    - sun
-    - mon
-    - tue
-    - wed
-    - thu
+    - fri
+    - sat
   action:
   - service: script.light_fader
     data:
@@ -210,15 +204,12 @@
   description: ''
   trigger:
   - platform: time
-    at: '18:30:00'
+    at: '19:30:00'
   condition:
   - condition: time
     weekday:
-    - sun
-    - mon
-    - tue
-    - wed
-    - thu
+    - fri
+    - sat
   action:
   - service: script.light_fader
     data:
@@ -244,15 +235,12 @@
   description: ''
   trigger:
   - platform: time
-    at: '18:30:00'
+    at: '19:30:00'
   condition:
   - condition: time
     weekday:
-    - sun
-    - mon
-    - tue
-    - wed
-    - thu
+    - fri
+    - sat
   action:
   - service: script.light_fader
     data:
@@ -287,6 +275,8 @@
     - tue
     - wed
     - thu
+    - fri
+    - sat
   action:
   - service: script.light_fader
     data:
@@ -316,11 +306,11 @@
   condition:
   - condition: time
     weekday:
-    - sun
     - mon
     - tue
     - wed
     - thu
+    - sun
   action:
   - service: script.light_fader
     data:
@@ -347,15 +337,15 @@
   trigger:
   - platform: sun
     event: sunset
-    offset: -00:45:00
+    offset: -01:00:00
   condition:
   - condition: time
     weekday:
-    - sun
     - mon
     - tue
     - wed
     - thu
+    - fri
   - condition: state
     entity_id: light.kitchen
     state: 'off'
@@ -385,15 +375,12 @@
   trigger:
   - platform: sun
     event: sunset
-    offset: -00:45:00
+    offset: -02:00
   condition:
   - condition: time
     weekday:
     - sun
-    - mon
-    - tue
-    - wed
-    - thu
+    - sat
   - condition: state
     entity_id: light.great_room
     state: 'off'
@@ -423,15 +410,15 @@
   trigger:
   - platform: sun
     event: sunset
-    offset: -00:45:00
+    offset: -01:00:00
   condition:
   - condition: time
     weekday:
-    - sun
     - mon
     - tue
     - wed
     - thu
+    - fri
   - condition: state
     entity_id: light.mudroom
     state: 'off'
@@ -461,15 +448,15 @@
   trigger:
   - platform: sun
     event: sunset
-    offset: -00:45:00
+    offset: -01:00:00
   condition:
   - condition: time
     weekday:
-    - sun
     - mon
     - tue
     - wed
     - thu
+    - fri
   - condition: state
     entity_id: light.offices
     state: 'off'
@@ -499,7 +486,7 @@
   trigger:
   - platform: sun
     event: sunset
-    offset: -00:45:00
+    offset: -00:15:00
   condition:
   - condition: time
     weekday:
@@ -508,6 +495,8 @@
     - tue
     - wed
     - thu
+    - fri
+    - sat
   - condition: state
     entity_id: light.solarium
     state: 'off'
@@ -525,15 +514,15 @@
   trigger:
   - platform: sun
     event: sunset
-    offset: -00:45:00
+    offset: -01:00:00
   condition:
   - condition: time
     weekday:
-    - sun
     - mon
     - tue
     - wed
     - thu
+    - fri
   - condition: state
     entity_id: light.basement
     state: 'off'
@@ -556,4 +545,615 @@
       transition: 300
     target:
       entity_id: light.basement
+  mode: single
+- id: '1705431664644'
+  alias: Basement Lights On Weekend
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -02:00:00
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - sat
+  - condition: state
+    entity_id: light.basement
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 1
+    target:
+      entity_id:
+      - light.basement
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 45
+      transition: 300
+    target:
+      entity_id: light.basement
+  mode: single
+- id: '1705432014008'
+  alias: Basement Light Fade Weekend
+  description: ''
+  trigger:
+  - platform: time
+    at: '19:30:00'
+  condition:
+  - condition: time
+    weekday:
+    - fri
+    - sat
+  action:
+  - service: script.light_fader
+    data:
+      lampBrightnessScale: zeroToTwoFiftyFive
+      easingTypeInput: easeInOutCubic
+      endBrightnessPercent: 15
+      endBrightnessEntityScale: zeroToOneHundred
+      autoCancelThreshold: 10
+      shouldStopIfTheLampIsTurnedOffDuringTheFade: true
+      shouldResetTheStopEntityToOffAtStart: false
+      shouldInvertTheValueOfTheStopEntity: false
+      minimumStepDelayInMilliseconds: 100
+      shouldTryToUseNativeLampTransitionsToo: false
+      isDebugMode: false
+      light: light.basement
+      transitionTime:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  mode: single
+- id: '1705438242743'
+  alias: Exterior Lights On
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: 0
+  condition: []
+  action:
+  - service: light.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - light.exterior_alcove
+      - light.exterior_front_door
+      - light.exterior_lower_garage
+      - light.exterior_upper_garage
+  mode: single
+- id: '1705438359061'
+  alias: Exterior Lights Off
+  description: ''
+  trigger:
+  - platform: time
+    at: '22:00:00'
+  condition: []
+  action:
+  - service: light.turn_off
+    target:
+      entity_id:
+      - light.exterior_alcove
+      - light.exterior_front_door
+      - light.exterior_lower_garage
+      - light.exterior_upper_garage
+    data: {}
+  mode: single
+- id: '1705439390606'
+  alias: Foyer Offices Light On Weekends
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -02:00:00
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - sat
+  - condition: state
+    entity_id: light.offices
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 1
+    target:
+      entity_id:
+      - light.offices
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 45
+      transition: 300
+    target:
+      entity_id: light.offices
+  mode: single
+- id: '1705439744495'
+  alias: Foyer Offices Light Fade Weekday
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  condition:
+  - condition: time
+    weekday:
+    - thu
+    - wed
+    - tue
+    - mon
+    - sun
+  action:
+  - service: script.light_fader
+    data:
+      lampBrightnessScale: zeroToTwoFiftyFive
+      easingTypeInput: easeInOutCubic
+      endBrightnessPercent: 15
+      endBrightnessEntityScale: zeroToOneHundred
+      autoCancelThreshold: 10
+      shouldStopIfTheLampIsTurnedOffDuringTheFade: true
+      shouldResetTheStopEntityToOffAtStart: false
+      shouldInvertTheValueOfTheStopEntity: false
+      minimumStepDelayInMilliseconds: 100
+      shouldTryToUseNativeLampTransitionsToo: false
+      isDebugMode: false
+      light: light.offices
+      transitionTime:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  mode: single
+- id: '1705440201298'
+  alias: Great Room Dusk Lights On Weekday
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -01:00:00
+  condition:
+  - condition: time
+    weekday:
+    - fri
+    - thu
+    - wed
+    - tue
+    - mon
+  - condition: state
+    entity_id: light.great_room
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 1
+    target:
+      entity_id:
+      - light.great_room
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 45
+      transition: 300
+    target:
+      entity_id: light.great_room
+  mode: single
+- id: '1705440540254'
+  alias: Great Room Light Fade Weekday
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  condition:
+  - condition: time
+    weekday:
+    - thu
+    - wed
+    - tue
+    - mon
+    - sun
+  action:
+  - service: script.light_fader
+    data:
+      lampBrightnessScale: zeroToTwoFiftyFive
+      easingTypeInput: easeInOutCubic
+      endBrightnessPercent: 5
+      endBrightnessEntityScale: zeroToOneHundred
+      autoCancelThreshold: 10
+      shouldStopIfTheLampIsTurnedOffDuringTheFade: true
+      shouldResetTheStopEntityToOffAtStart: false
+      shouldInvertTheValueOfTheStopEntity: false
+      minimumStepDelayInMilliseconds: 100
+      shouldTryToUseNativeLampTransitionsToo: false
+      isDebugMode: false
+      light: light.great_room
+      transitionTime:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  mode: single
+- id: '1705460550857'
+  alias: Kitchen Lights On Weekend
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -02:00:00
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - sat
+  - condition: state
+    entity_id: light.kitchen
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 2
+    target:
+      entity_id:
+      - light.kitchen
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 45
+      transition: 300
+    target:
+      entity_id: light.kitchen
+  mode: single
+- id: '1705460783142'
+  alias: Kitchen Light Fade Weekday
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - wed
+    - tue
+    - thu
+  action:
+  - service: script.light_fader
+    data:
+      lampBrightnessScale: zeroToTwoFiftyFive
+      easingTypeInput: easeInOutCubic
+      endBrightnessPercent: 10
+      endBrightnessEntityScale: zeroToOneHundred
+      autoCancelThreshold: 10
+      shouldStopIfTheLampIsTurnedOffDuringTheFade: true
+      shouldResetTheStopEntityToOffAtStart: false
+      shouldInvertTheValueOfTheStopEntity: false
+      minimumStepDelayInMilliseconds: 100
+      shouldTryToUseNativeLampTransitionsToo: false
+      isDebugMode: false
+      light: light.kitchen
+      transitionTime:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  mode: single
+- id: '1705460938055'
+  alias: Mudroom Dusk Lights On Weekend
+  description: ''
+  trigger:
+  - platform: sun
+    event: sunset
+    offset: -02:00:00
+  condition:
+  - condition: time
+    weekday:
+    - sat
+    - sun
+  - condition: state
+    entity_id: light.mudroom
+    state: 'off'
+  action:
+  - service: light.turn_on
+    data:
+      brightness_pct: 1
+    target:
+      entity_id:
+      - light.mudroom
+  - delay:
+      hours: 0
+      minutes: 0
+      seconds: 2
+      milliseconds: 0
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 45
+      transition: 300
+    target:
+      entity_id: light.mudroom
+  mode: single
+- id: '1705461073498'
+  alias: Mudroom Light Fade Weekday
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:30:00'
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - service: script.light_fader
+    data:
+      lampBrightnessScale: zeroToTwoFiftyFive
+      easingTypeInput: easeInOutCubic
+      endBrightnessPercent: 0
+      endBrightnessEntityScale: zeroToOneHundred
+      autoCancelThreshold: 10
+      shouldStopIfTheLampIsTurnedOffDuringTheFade: true
+      shouldResetTheStopEntityToOffAtStart: false
+      shouldInvertTheValueOfTheStopEntity: false
+      minimumStepDelayInMilliseconds: 100
+      shouldTryToUseNativeLampTransitionsToo: false
+      isDebugMode: false
+      light: light.mudroom
+      transitionTime:
+        hours: 0
+        minutes: 30
+        seconds: 0
+  mode: single
+- id: '1705508847254'
+  alias: Christmas Lights On Morning
+  description: ''
+  trigger:
+  - platform: time
+    at: 06:30:00
+  condition: []
+  action:
+  - service: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.christmas_lights
+  mode: single
+- id: '1705508930785'
+  alias: Christmas Lights Morning Off
+  description: ''
+  trigger:
+  - platform: time
+    at: 07:45:00
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id:
+      - switch.christmas_lights
+    data: {}
+  mode: single
+- id: '1705509185881'
+  alias: Christmas Lights On Night
+  description: ''
+  trigger:
+  - platform: time
+    at: '15:00:00'
+  condition: []
+  action:
+  - service: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id: switch.christmas_lights
+  mode: single
+- id: '1705509270624'
+  alias: Christmas Lights Off Night
+  description: ''
+  trigger:
+  - platform: time
+    at: 09:30:00
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id:
+      - switch.christmas_lights
+    data: {}
+  mode: single
+- id: '1705511054263'
+  alias: Fountains On Morning
+  description: ''
+  trigger:
+  - platform: time
+    at: 08:00:00
+  condition: []
+  action:
+  - service: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - switch.lion_fountain
+      - switch.big_fountain
+  mode: single
+- id: '1705511124743'
+  alias: Fountains On Night
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:00:00'
+  condition: []
+  action:
+  - service: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - switch.lion_fountain
+      - switch.big_fountain
+  mode: single
+- id: '1705511201828'
+  alias: Fountains Off Night
+  description: ''
+  trigger:
+  - platform: time
+    at: '19:00:00'
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id:
+      - switch.lion_fountain
+      - switch.big_fountain
+    data: {}
+  mode: single
+- id: '1705511305708'
+  alias: Fountains Off Morning
+  description: ''
+  trigger:
+  - platform: time
+    at: 09:00:00
+  condition: []
+  action:
+  - service: switch.turn_off
+    target:
+      entity_id:
+      - switch.lion_fountain
+      - switch.big_fountain
+    data: {}
+  mode: single
+- id: '1705512854907'
+  alias: Charlotte Bedtime Weekday
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:00:00'
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - service: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - switch.charlotte_noise
+      - switch.charlotte_night_light
+      - switch.charlotte_fan
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 20
+    target:
+      entity_id: light.charlotte_bedroom_table_lamp
+  mode: single
+- id: '1705512914359'
+  alias: Charlotte Bedtime Weekend
+  description: ''
+  trigger:
+  - platform: time
+    at: '19:00:00'
+  condition:
+  - condition: time
+    weekday:
+    - fri
+    - sat
+  action:
+  - service: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - switch.charlotte_noise
+      - switch.charlotte_night_light
+      - switch.charlotte_fan
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 20
+    target:
+      entity_id: light.charlotte_bedroom_table_lamp
+  mode: single
+- id: '1705513057222'
+  alias: Henry Bedtime Weekday
+  description: ''
+  trigger:
+  - platform: time
+    at: '18:00:00'
+  condition:
+  - condition: time
+    weekday:
+    - sun
+    - mon
+    - tue
+    - wed
+    - thu
+  action:
+  - service: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - switch.henry_noise_floor
+      - switch.henry_noise_table
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 20
+    target:
+      entity_id: light.henry_bedroom_table_lamp
+  mode: single
+- id: '1705513100013'
+  alias: Henry Bedtime Weekend
+  description: ''
+  trigger:
+  - platform: time
+    at: '19:00:00'
+  condition:
+  - condition: time
+    weekday:
+    - fri
+    - sat
+  action:
+  - service: switch.turn_on
+    metadata: {}
+    data: {}
+    target:
+      entity_id:
+      - switch.henry_noise_floor
+      - switch.henry_noise_table
+  - service: light.turn_on
+    metadata: {}
+    data:
+      brightness_pct: 20
+    target:
+      entity_id: light.henry_bedroom_table_lamp
   mode: single
