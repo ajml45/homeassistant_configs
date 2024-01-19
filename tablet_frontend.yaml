@@ -521,8 +521,6 @@ views:
             type: glance
             entities:
               - entity: person.christina
-                hold_action: none
-                tap_action: none
               - entity: sensor.christina_s_iphone_battery_level
               - entity: sensor.christina_s_iphone_distance
               - entity: sensor.christina_s_iphone_steps
@@ -642,48 +640,6 @@ views:
                     }
                 cards:
                   - type: custom:mushroom-template-card
-                    primary: Pool
-                    secondary: '{{states(''todo.pool'') | int }} Open Items'
-                    icon: mdi:pool
-                    tap_action:
-                      action: none
-                    entity: todo.pool
-                    layout: horizontal
-                    card_mod:
-                      style: |
-                        ha-card {
-                            background-color: #242e42 !important; 
-                        }
-                  - type: custom:fold-entity-row
-                    head:
-                      type: custom:mushroom-template-card
-                      card_mod:
-                        style: |
-                          ha-card {
-                              background-color: #242e42 !important; 
-                          }
-                      label: padding
-                      tap_action: null
-                      multiline_secondary: true
-                    padding: 0
-                    entities:
-                      - type: custom:stack-in-card
-                        cards:
-                          - type: todo-list
-                            entity: todo.pool
-                            card_mod:
-                              style: |
-                                ha-card {
-                                  background: #242e42 !important;
-                                  }
-              - type: custom:stack-in-card
-                card_mod:
-                  style: |
-                    ha-card {
-                        background-color: #242e42 !important; 
-                    }
-                cards:
-                  - type: custom:mushroom-template-card
                     primary: Cleaning
                     secondary: '{{states(''todo.cleaning'') | int }} Open Items'
                     icon: mdi:broom
@@ -718,48 +674,6 @@ views:
                                 ha-card {
                                     background-color: #242e42 !important; 
                                 }
-              - type: custom:stack-in-card
-                card_mod:
-                  style: |
-                    ha-card {
-                        background-color: #242e42 !important; 
-                    }
-                cards:
-                  - type: custom:mushroom-template-card
-                    primary: Other To-Do
-                    secondary: '{{states(''todo.tasks'') | int }} Open Items'
-                    icon: mdi:magic-staff
-                    tap_action:
-                      action: none
-                    entity: todo.tasks
-                    layout: horizontal
-                    card_mod:
-                      style: |
-                        ha-card {
-                            background-color: #242e42 !important; 
-                        }
-                  - type: custom:fold-entity-row
-                    head:
-                      type: custom:mushroom-template-card
-                      label: padding
-                      tap_action: null
-                      multiline_secondary: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                              background-color: #242e42 !important; 
-                          }
-                    padding: 0
-                    entities:
-                      - type: custom:stack-in-card
-                        cards:
-                          - type: todo-list
-                            entity: todo.tasks
-                            card_mod:
-                              style: |
-                                ha-card {
-                                    background-color: #242e42 !important; 
-                                }
           - type: vertical-stack
             cards:
               - type: custom:bubble-card
@@ -774,82 +688,6 @@ views:
                         height: 5px!important;
                   }
                 icon: mdi:cart
-              - type: custom:stack-in-card
-                card_mod:
-                  style: |
-                    ha-card {
-                        background-color: #242e42 !important; 
-                    }
-                cards:
-                  - type: custom:mushroom-template-card
-                    primary: Home Depot Pool
-                    secondary: '{{states(''todo.hd_pool'') | int }} Open Items'
-                    icon: mdi:storefront
-                    tap_action:
-                      action: more-info
-                    entity: todo.hd_pool
-                    layout: horizontal
-                    card_mod:
-                      style: |
-                        ha-card {
-                            background-color: #242e42 !important; 
-                        }
-                  - type: custom:fold-entity-row
-                    head:
-                      type: custom:mushroom-template-card
-                      label: padding
-                      tap_action: null
-                      multiline_secondary: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            margin-left: 250px;
-                            background-color: #242e42 !important;
-                          }
-                    padding: 0
-                    entities:
-                      - type: custom:stack-in-card
-                        cards:
-                          - type: todo-list
-                            entity: todo.hd_pool
-              - type: custom:stack-in-card
-                card_mod:
-                  style: |
-                    ha-card {
-                        background-color: #242e42 !important; 
-                    }
-                cards:
-                  - type: custom:mushroom-template-card
-                    primary: Selectwood Pool
-                    secondary: '{{states(''todo.selectwood'') | int }} Open Items'
-                    icon: mdi:storefront
-                    tap_action:
-                      action: more-info
-                    entity: todo.selectwood
-                    layout: horizontal
-                    card_mod:
-                      style: |
-                        ha-card {
-                            background-color: #242e42 !important; 
-                        }
-                  - type: custom:fold-entity-row
-                    head:
-                      type: custom:mushroom-template-card
-                      label: padding
-                      tap_action: null
-                      multiline_secondary: true
-                      card_mod:
-                        style: |
-                          ha-card {
-                            margin-left: 250px;
-                            background-color: #242e42 !important;
-                          }
-                    padding: 0
-                    entities:
-                      - type: custom:stack-in-card
-                        cards:
-                          - type: todo-list
-                            entity: todo.selectwood
               - type: custom:stack-in-card
                 card_mod:
                   style: |
@@ -5117,6 +4955,26 @@ views:
                         entity_id: light.all_lights
                     content_info: name
                     name: All Lights Off
+                    card_mod:
+                      style: |
+                        ha-card {
+                          --chip-height: 50px;
+                          --chip-padding: 30px; 
+                        }
+                        ha-card:active {
+                          transform: scale(0.975);
+                          transition: 0s;
+                        }
+                    alignment: center
+                  - type: entity
+                    entity: switch.christmas_lights
+                    tap_action:
+                      action: call-service
+                      service: scene.turn_on
+                      service_data:
+                        entity_id: scene.good_morning
+                    content_info: name
+                    name: Good Morning
                     card_mod:
                       style: |
                         ha-card {

@@ -1,8 +1,8 @@
 ## Light Control Info
-Main light control dynamically controls all of the lights in the house via <a href="https://github.com/fredck/lightener">Lightener</a>.  Each room of the house has it's own light via Lightner that controls all of the lights in that room.  The main light control is made of up each of those room lights.
+The "Main Light" controls most of the lights in the house by creating a single light with <a href="https://github.com/fredck/lightener">Lightener</a>.  Each room of the house has its own light in Lightner that controls all lights in the room.  The main light control is made of up each of those room lights.
 
 Light scripting: 
-- An hour before sunset the lights in the majority of the rooms transition to 45% (as long as they are currently off) over a 5 minute period.  This uses the built in Home Assistant service calls, <a href="https://everythingsmarthome.co.uk/creating-wake-up-sunrise-lights-with-home-assistant/">more details here.</a>
+- An hour before sunset the lights in the majority of the rooms transition to 45% (if they are off) over a 5 minute period.  This uses the built in Home Assistant service calls, <a href="https://everythingsmarthome.co.uk/creating-wake-up-sunrise-lights-with-home-assistant/">more details here.</a>
 - Beginning at 6:30pm for the majority of rooms (some are later for example the Solarium doesnt start until 830pm), the lights gradually fade from their current brightness down to dim levels (generally 15-0% based on the room.)  This is done via <a href="https://community.home-assistant.io/t/ashley-s-light-fader-2-0-fade-lights-and-or-color-temperature-with-your-choice-of-easing-curves-including-ease-in-ease-out-and-ease-in-out/584077">Ashley's fader script."
 - On Sat/Sun the lights come on an hour earlier.  On Fri/Sat they start turning off an hour later.
 - The code for this is set-up in Lightener for the lights and the scripts.yaml file for the logic. </br>
@@ -22,7 +22,7 @@ Music/Sonos Card
  Main room controls. Room cards have conditional icons that display when active. Tapping a room card opens a pop-up via <a href="https://github.com/Clooos/Bubble-Card">Bubble Card</a> with all of the room controls (examples below.) Double tapping opens the main light contol for that room. Holding a room card shuts off all lights in that room.
 
 <img src="https://github.com/ajml45/homeassistant_configs/assets/122765092/293c19e8-cdc1-485c-810d-587b5ffe3bbb" width="500"> </br>
-Camera card for Arlo, needs work... Have to add reolink doorbell.
+Camera card for Arlo, needs work... 
 
 <img src="https://github.com/ajml45/homeassistant_configs/assets/122765092/87130093-16dc-447c-8c87-c7c74b40f856" width="500"> </br>
 Mail card from Mail and Packages, acts as a pop-up via Bubble Card.
