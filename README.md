@@ -22,7 +22,7 @@ Music/Sonos Card
  Main room controls. Room cards have conditional icons that display when things are active (like HVAC, fans, lights/count, motion, etc.) Tapping a room card opens a pop-up via <a href="https://github.com/Clooos/Bubble-Card">Bubble Card</a> with all of the room controls (examples below.) Double tapping opens the main light contol for that room. Holding a room card shuts off all lights in that room.
 
 <img src="https://github.com/ajml45/homeassistant_configs/assets/122765092/293c19e8-cdc1-485c-810d-587b5ffe3bbb" width="500"> </br>
-Camera card for Arlo, needs work... 
+Camera card for Arlo, this doesnt really work....
 
 <img src="https://github.com/ajml45/homeassistant_configs/assets/122765092/87130093-16dc-447c-8c87-c7c74b40f856" width="500"> </br>
 Mail card from Mail and Packages, acts as a pop-up via Bubble Card.
