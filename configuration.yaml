@@ -8,6 +8,7 @@ frontend:
   - /local/community/lovelace-card-mod/card-mod.js
   - /hacsfiles/Bubble-Card/bubble-pop-up.js?v=1.5.3
 
+
   themes: !include_dir_merge_named themes
 
 # Text to speech
