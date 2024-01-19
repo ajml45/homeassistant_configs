@@ -19,7 +19,7 @@ Home Page, dashboard uses sidecard card for the side menu.
 Music/Sonos Card
 
 <img src="https://github.com/ajml45/homeassistant_configs/assets/122765092/fdba8359-945a-45d5-b7e7-e0b41675f634" width="500"> </br>
- Main room controls. Room cards have conditional icons that display when active. Tapping a room card opens a pop-up via <a href="https://github.com/Clooos/Bubble-Card">Bubble Card</a> with all of the room controls (examples below.) Double tapping opens the main light contol for that room. Holding a room card shuts off all lights in that room.
+ Main room controls. Room cards have conditional icons that display when things are active (like HVAC, fans, lights/count, motion, etc.) Tapping a room card opens a pop-up via <a href="https://github.com/Clooos/Bubble-Card">Bubble Card</a> with all of the room controls (examples below.) Double tapping opens the main light contol for that room. Holding a room card shuts off all lights in that room.
 
 <img src="https://github.com/ajml45/homeassistant_configs/assets/122765092/293c19e8-cdc1-485c-810d-587b5ffe3bbb" width="500"> </br>
 Camera card for Arlo, needs work... 
