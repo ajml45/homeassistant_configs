@@ -1,5 +1,5 @@
 ## Light Control Info
-The "Main Light" controls most of the lights in the house by creating a single light with <a href="https://github.com/fredck/lightener">Lightener</a>.  Each room of the house has it's own light with Lightner that controls all of the lights in that room.  The main light control is made of up each of those room lights.
+The "Main Light" controls most of the lights in the house by creating a single light with <a href="https://github.com/fredck/lightener">Lightener</a>.  Each room of the house has its own light in Lightner that controls all lights in the room.  The main light control is made of up each of those room lights.
 
 Light scripting: 
 - An hour before sunset the lights in the majority of the rooms transition to 45% (if they are off) over a 5 minute period.  This uses the built in Home Assistant service calls, <a href="https://everythingsmarthome.co.uk/creating-wake-up-sunrise-lights-with-home-assistant/">more details here.</a>
